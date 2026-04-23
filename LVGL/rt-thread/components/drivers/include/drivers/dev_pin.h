@@ -211,7 +211,7 @@ struct rt_pin_ops
 {
     void (*pin_mode)(struct rt_device *device, rt_base_t pin, rt_uint8_t mode);
     void (*pin_write)(struct rt_device *device, rt_base_t pin, rt_uint8_t value);
-    rt_ssize_t  (*pin_read)(struct rt_device *device, rt_base_t pin);
+    rt_size_t  (*pin_read)(struct rt_device *device, rt_base_t pin);
     rt_err_t (*pin_attach_irq)(struct rt_device *device, rt_base_t pin,
             rt_uint8_t mode, void (*hdr)(void *args), void *args);
     rt_err_t (*pin_detach_irq)(struct rt_device *device, rt_base_t pin);

@@ -16,13 +16,13 @@
 
 int main(void)
 {
-    int count = 1;
-
-    while (count++)
-    {
-        LOG_D("Hello RT-Thread!");
-        rt_thread_mdelay(1000);
-    }
+//    int count = 1;
+//
+//    while (count++)
+//    {
+//        LOG_D("Hello RT-Thread!");
+//        rt_thread_mdelay(1000);
+//    }
 
     return RT_EOK;
 }

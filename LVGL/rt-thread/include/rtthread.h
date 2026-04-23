@@ -227,6 +227,28 @@ void rt_system_scheduler_start(void);
 
 void rt_schedule(void);
 void rt_scheduler_do_irq_switch(void *context);
+// Add By Quinn 2026-04-23
+// Source By scheduler_comm.c
+void rt_sched_thread_init_ctx(struct rt_thread *thread, rt_uint32_t tick, rt_uint8_t priority);
+rt_err_t rt_sched_thread_timer_start(struct rt_thread *thread);
+rt_err_t rt_sched_thread_timer_stop(struct rt_thread *thread);
+rt_uint8_t rt_sched_thread_get_stat(struct rt_thread *thread);
+rt_uint8_t rt_sched_thread_get_curr_prio(struct rt_thread *thread);
+rt_uint8_t rt_sched_thread_get_init_prio(struct rt_thread *thread);
+rt_uint8_t rt_sched_thread_is_suspended(struct rt_thread *thread);
+rt_err_t rt_sched_thread_close(struct rt_thread *thread);
+rt_err_t rt_sched_thread_yield(struct rt_thread *thread);
+rt_err_t rt_sched_thread_ready(struct rt_thread *thread);
+rt_err_t rt_sched_tick_increase(rt_tick_t tick);
+rt_err_t rt_sched_thread_change_priority(struct rt_thread *thread, rt_uint8_t priority);
+rt_err_t rt_sched_thread_reset_priority(struct rt_thread *thread, rt_uint8_t priority);
+// Source By scheduler_up.c
+void rt_sched_thread_startup(struct rt_thread *thread);
+void rt_sched_thread_init_priv(struct rt_thread *thread, rt_uint32_t tick, rt_uint8_t priority);
+void rt_sched_insert_thread(struct rt_thread *thread);
+void rt_sched_remove_thread(struct rt_thread *thread);
+rt_err_t rt_sched_thread_bind_cpu(struct rt_thread *thread, int cpu);
+// Add End
 
 #ifdef RT_USING_OVERFLOW_CHECK
 void rt_scheduler_stack_check(struct rt_thread *thread);
