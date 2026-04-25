@@ -17,25 +17,44 @@
 #include <drv_common.h>
 #include "agile_button.h"
 
+#include "drv_JHD_LCD.h"
+
+#include <lvgl.h>
+
+#include "main_btn.h"
+
 static agile_btn_t _sbtn;
 
-//{GET_PIN(B, 1), KEY_EVENT_NONE, "返回键"},
-//{GET_PIN(B, 0), KEY_EVENT_NONE, "上键"},
-//{GET_PIN(A, 1), KEY_EVENT_NONE, "下键"},
-//{GET_PIN(A, 0), KEY_EVENT_NONE, "确定键"},
-
-static void btn_click_event_cb(agile_btn_t *btn)
+void lv_user_gui_init(void)
 {
-    rt_kprintf("[button click event] pin:%d   repeat:%d, hold_time:%d\r\n", btn->pin, btn->repeat_cnt, btn->hold_time);
+//    lv_init();
+//    lv_port_disp_init();
+    /* 获取默认显示器的活动屏幕 */
+    lv_obj_t *scr = lv_scr_act();
+    lv_obj_clean(scr); /* 清屏 */
+
+    /* 创建界面启动界面 */
+    lv_obj_t *page = lv_obj_create(scr);
+    lv_obj_set_size(page, LV_HOR_RES-2, LV_VER_RES-2);
+    lv_obj_set_style_bg_color(page, lv_color_white(), LV_PART_MAIN);            /* 设置背景颜色 */
+    lv_obj_set_style_radius(page, 0, LV_PART_MAIN | LV_STATE_DEFAULT);          /* 设置导角为0 */
+    lv_obj_set_style_border_width(page, 1, LV_PART_MAIN | LV_STATE_DEFAULT);    /* 设置边框为0 */
+
+    /* 添加标签 */
+    lv_obj_t *label = lv_label_create(page);
+    lv_label_set_text(label, "Hello LVGL");
+    lv_obj_align(label, LV_ALIGN_CENTER, 0, 0);
 }
+
+
 int main(void)
 {
 //    agile_btn_env_init();
 
-    agile_btn_stop(&_sbtn);
-    agile_btn_init(&_sbtn, GET_PIN(B, 1), PIN_LOW, PIN_MODE_INPUT_PULLUP);
-    agile_btn_set_event_cb(&_sbtn, BTN_CLICK_EVENT, btn_click_event_cb);
-    agile_btn_start(&_sbtn);
+    Main_Btn_Init();
+
+    JHD_LCD_Init();
+//    lv_user_gui_init();
 //    int count = 1;
 //
 //    while (count++)

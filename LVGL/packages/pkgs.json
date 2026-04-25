@@ -1,5 +1,10 @@
 [
  {
+  "name": "LVGL",
+  "path": "/packages/multimedia/LVGL/LVGL",
+  "ver": "v8.3.11"
+ },
+ {
   "name": "AGILE_BUTTON",
   "path": "/packages/peripherals/agile_button",
   "ver": "v1.1.1"
