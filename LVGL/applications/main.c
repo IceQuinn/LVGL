@@ -25,6 +25,8 @@
 
 static agile_btn_t _sbtn;
 
+
+
 void lv_user_gui_init(void)
 {
 //    lv_init();
@@ -53,7 +55,7 @@ int main(void)
 
     Main_Btn_Init();
 
-    JHD_LCD_Init();
+    // JHD_LCD_Init();
 //    lv_user_gui_init();
 //    int count = 1;
 //
