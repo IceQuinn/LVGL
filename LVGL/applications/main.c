@@ -53,7 +53,7 @@ int main(void)
 {
 //    agile_btn_env_init();
 
-    Main_Btn_Init();
+//    Main_Btn_Init();
 
     // JHD_LCD_Init();
 //    lv_user_gui_init();

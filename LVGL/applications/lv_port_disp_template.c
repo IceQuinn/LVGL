@@ -142,6 +142,8 @@ static void disp_init(void)
 {
     /*You code here*/
     extern void JHD_LCD_Init(void);
+
+    JHD_LCD_Init();
 }
 
 volatile bool disp_flush_enabled = true;
