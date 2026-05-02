@@ -66,7 +66,7 @@
     #ifdef CONFIG_LV_COLOR_DEPTH
         #define LV_COLOR_DEPTH CONFIG_LV_COLOR_DEPTH
     #else
-        #define LV_COLOR_DEPTH 1
+        #define LV_COLOR_DEPTH 16
     #endif
 #endif
 

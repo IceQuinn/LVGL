@@ -34,7 +34,7 @@
 
 #include "lv_printf.h"
 
-#if LV_SPRINTF_CUSTOM == 0
+#if LV_SPRINTF_CUSTOM == 1
 
 #include <stdbool.h>
 

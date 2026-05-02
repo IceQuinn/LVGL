@@ -60,6 +60,7 @@ void SysTick_Handler(void)
         HAL_IncTick();
 
     rt_tick_increase();
+    lv_tick_inc(1);
 
     /* leave interrupt */
     rt_interrupt_leave();
